@@ -2,44 +2,58 @@
 
 <article class="visitekaartje">
 
-  <section class="visitekaartje__card">
+  <section class="visitekaartje__wrap">
 
-    <header class="visitekaartje__header">
-      <h1 class="visitekaartje__name">{{ person.name }}</h1>
-      <p class="visitekaartje__intro">
-        Ik kijk ernaar uit om mijn kennis te verbreden.
-      </p>
-    </header>
+    <section class="visitekaartje__card">
 
-    <main class="visitekaartje__main">
+      <!-- VOORKANT: alleen naam -->
+      <header class="visitekaartje__side visitekaartje__front">
+        <h1 class="visitekaartje__front-name">{{ person.name }}</h1>
+      </header>
 
-      <section class="visitekaartje__content">
-        <h2 class="visitekaartje__role">Student FDND</h2>
+      <!-- ACHTERKANT: rest info -->
+      <section class="visitekaartje__side visitekaartje__back">
 
-        <ul class="visitekaartje__list">
-          <li>Front-end development</li>
-          <li>Leeftijd</li>
-          <li>Hobby’s</li>
-        </ul>
+        <header class="visitekaartje__header">
+          <h2 class="visitekaartje__name">{{ person.name }}</h2>
+          <p class="visitekaartje__intro">
+            Ik kijk ernaar uit om mijn kennis te verbreden.
+          </p>
+        </header>
 
-        <nav class="visitekaartje__links">
-          <a class="visitekaartje__icon" href="#"></a>
-          <a class="visitekaartje__icon" href=""></a>
-          <a class="visitekaartje__icon" href="mailto:voorbeeld@mail.com">✉</a>
-        </nav>
+        <main class="visitekaartje__main">
+
+          <section class="visitekaartje__content">
+            <h3 class="visitekaartje__role">Student FDND</h3>
+
+            <ul class="visitekaartje__list">
+              <li>Front-end development</li>
+              <li>Leeftijd</li>
+              <li>Hobby’s</li>
+            </ul>
+
+            <nav class="visitekaartje__links">
+              <a class="visitekaartje__icon" href="#"></a>
+              <a class="visitekaartje__icon" href="#"></a>
+              <a class="visitekaartje__icon" href="mailto:voorbeeld@mail.com"></a>
+            </nav>
+          </section>
+
+          <figure class="visitekaartje__media">
+            <img
+              class="visitekaartje__img"
+              src="/Squad1J-Jasin-2.jpg"
+              alt="{{ person.name }}"
+              width="320"
+              height="320"
+            >
+          </figure>
+
+        </main>
+
       </section>
 
-      <figure class="visitekaartje__media">
-        <img
-          class="visitekaartje__img"
-          src="/Squad1J-Jasin-2.jpg"
-          alt="{{ person.name }}"
-          width="320"
-          height="320"
-        >
-      </figure>
-
-    </main>
+    </section>
 
   </section>
 
