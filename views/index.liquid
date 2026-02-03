@@ -2,16 +2,19 @@
 
 <article class="visitekaartje">
 
-  <section class="visitekaartje__wrap">
+  <section class="visitekaartje__wrap cq">
+
+    <!-- checkbox = “schakelaar” voor tap-to-flip -->
+    <input class="visitekaartje__toggle" type="checkbox" id="flip">
 
     <section class="visitekaartje__card">
 
-      <!-- VOORKANT: alleen naam -->
-      <header class="visitekaartje__side visitekaartje__front">
+      <!-- FRONT (klik/tap) -->
+      <label class="visitekaartje__side visitekaartje__front" for="flip">
         <h1 class="visitekaartje__front-name">{{ person.name }}</h1>
-      </header>
+      </label>
 
-      <!-- ACHTERKANT: rest info -->
+      <!-- BACK -->
       <section class="visitekaartje__side visitekaartje__back">
 
         <header class="visitekaartje__header">
@@ -33,10 +36,15 @@
             </ul>
 
             <nav class="visitekaartje__links">
-              <a class="visitekaartje__icon" href="#"></a>
-              <a class="visitekaartje__icon" href="#"></a>
-              <a class="visitekaartje__icon" href="mailto:voorbeeld@mail.com"></a>
+              <a class="visitekaartje__icon" href="#" target="_blank">⌂</a>
+              <a class="visitekaartje__icon" href="#" target="_blank">in</a>
+              <a class="visitekaartje__icon" href="mailto:voorbeeld@mail.com">✉</a>
             </nav>
+
+            <!-- Terug flippen op mobiel -->
+            <p class="visitekaartje__back-close">
+              <label class="visitekaartje__close" for="flip">Terug</label>
+            </p>
           </section>
 
           <figure class="visitekaartje__media">
