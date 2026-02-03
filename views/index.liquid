@@ -1,69 +1,65 @@
 {% render 'partials/head.liquid' %}
 
-<article class="visitekaartje">
+<article class="page">
 
-  <section class="visitekaartje__wrap cq">
+  <header class="hero">
+    <figure class="hero__media">
+      <img class="hero__img" src="/Squad1J-Jasin-2.jpg" alt="{{ person.name }}">
+    </figure>
 
-    <!-- checkbox = “schakelaar” voor tap-to-flip -->
-    <input class="visitekaartje__toggle" type="checkbox" id="flip">
+    <h1 class="hero__name">{{ person.name }}</h1>
+    <p class="hero__badge">FDND STUDENT</p>
+  </header>
 
-    <section class="visitekaartje__card">
+  <main class="content">
 
-      <!-- FRONT (klik/tap) -->
-      <label class="visitekaartje__side visitekaartje__front" for="flip">
-        <h1 class="visitekaartje__front-name">{{ person.name }}</h1>
-      </label>
-
-      <!-- BACK -->
-      <section class="visitekaartje__side visitekaartje__back">
-
-        <header class="visitekaartje__header">
-          <h2 class="visitekaartje__name">{{ person.name }}</h2>
-          <p class="visitekaartje__intro">
-            Ik kijk ernaar uit om mijn kennis te verbreden.
-          </p>
-        </header>
-
-        <main class="visitekaartje__main">
-
-          <section class="visitekaartje__content">
-            <h3 class="visitekaartje__role">Student FDND</h3>
-
-            <ul class="visitekaartje__list">
-              <li>Front-end development</li>
-              <li>Leeftijd</li>
-              <li>Hobby’s</li>
-            </ul>
-
-            <nav class="visitekaartje__links">
-              <a class="visitekaartje__icon" href="#" target="_blank">⌂</a>
-              <a class="visitekaartje__icon" href="#" target="_blank">in</a>
-              <a class="visitekaartje__icon" href="mailto:voorbeeld@mail.com">✉</a>
-            </nav>
-
-            <!-- Terug flippen op mobiel -->
-            <p class="visitekaartje__back-close">
-              <label class="visitekaartje__close" for="flip">Terug</label>
-            </p>
-          </section>
-
-          <figure class="visitekaartje__media">
-            <img
-              class="visitekaartje__img"
-              src="/Squad1J-Jasin-2.jpg"
-              alt="{{ person.name }}"
-              width="320"
-              height="320"
-            >
-          </figure>
-
-        </main>
-
+    <details class="item" open>
+      <summary class="item__btn">
+        <h2 class="item__title">Wie ben ik</h2>
+      </summary>
+      <section class="item__panel">
+        <p class="item__text">
+          Ik ben een eerstejaars Front-end student. Ik wil beter worden door veel te oefenen met echte projecten
+          en duidelijke, rustige designs te maken.
+        </p>
       </section>
+    </details>
 
-    </section>
+    <details class="item">
+      <summary class="item__btn">
+        <h2 class="item__title">Hobby’s</h2>
+      </summary>
+      <section class="item__panel">
+        <ul class="tags">
+          <li class="tag">Geschiedenis</li>
+          <li class="tag">Boeken</li>
+          <li class="tag">Films</li>
+          <li class="tag">Series</li>
+        </ul>
+      </section>
+    </details>
 
-  </section>
+    <details class="item">
+      <summary class="item__btn">
+        <h2 class="item__title">Skills</h2>
+      </summary>
+      <section class="item__panel">
+        <ul class="tags">
+          <li class="tag">HTML</li>
+          <li class="tag">CSS</li>
+          <li class="tag">JavaScript</li>
+        </ul>
+      </section>
+    </details>
+
+  </main>
+
+  <footer class="footer">
+    <nav class="buttons">
+      <a class="buttons__btn" href="#" target="_blank" rel="noopener">GitHub</a>
+      <a class="buttons__btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </footer>
 
 </article>
 

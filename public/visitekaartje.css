@@ -1,231 +1,209 @@
 :root{
-  --front-bg: #EFEAD3;
-  --front-text: #333;
+  --ink: #111111;
+  --muted: rgba(17,17,17,.72);
+  --stroke: rgba(17,17,17,.18);
 
-  --glass-bg: rgba(0,0,0,.28);
-  --glass-border: rgba(255,255,255,.25);
-  --muted: rgba(255,255,255,.78);
-
-  --radius: 14px;
-  --shadow: 0 16px 40px rgba(0,0,0,.16);
+  --paper: rgba(215,215,215,.92); /* kaart iets transparant -> mooier met foto */
+  --shadow: 0 24px 70px rgba(0,0,0,.55);
 }
+
+*{ box-sizing: border-box; }
 
 body{
   margin: 0;
-  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px 12px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 
-  /* achtergrond bureau/laptop */
-  background:
-    linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.20)),
-    url("/Kantoor foto.jpg");
+  /* ✅ achtergrondfoto + overlay */
+  background-image:
+    linear-gradient(rgba(0,0,0,.60), rgba(0,0,0,.60)),
+    url("/achtergrond.jpg");
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.visitekaartje{
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-}
-
-/* container queries aanzetten */
-.cq{
-  container-type: inline-size;
-}
-
-.visitekaartje__wrap{
-  perspective: 1000px;
-  position: relative;
-}
-
-/* checkbox verbergen */
-.visitekaartje__toggle{
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* kaart */
-.visitekaartje__card{
-  width: min(520px, 92vw);
-  height: 260px;                 /* mobile-first */
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform .8s ease;
-}
-
-/* hover flip alleen op devices met hover (laptop/pc) */
-@media (hover:hover){
-  .visitekaartje__wrap:hover .visitekaartje__card{
-    transform: rotateY(180deg);
-  }
-}
-
-/* tap flip op mobiel */
-.visitekaartje__toggle:checked + .visitekaartje__card{
-  transform: rotateY(180deg);
-}
-
-/* beide kanten */
-.visitekaartje__side{
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-
-  border-radius: var(--radius);
-  overflow: hidden;
+/* ✅ container queries */
+.page{
+  width: min(420px, 92vw);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 14px;
   box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+
+  container-type: inline-size;
+  container-name: page;
 }
 
-/* FRONT */
-.visitekaartje__front{
-  background: var(--front-bg);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
+/* ===== HERO ===== */
+.hero{
+  padding: 22px 22px 10px;
+  text-align: center;
 }
 
-.visitekaartje__front-name{
-  margin: 0;
-  color: var(--front-text);
-  letter-spacing: 6px;
-  font-weight: 600;
-  font-size: 1.6rem;
-  padding: 14px 28px;
-  position: relative;
-}
+.hero__media{
+  margin: 0 auto 16px;
+  width: 100%;
+  max-width: 330px;
 
-/* underline met ::after */
-.visitekaartje__front-name::after{
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 6px;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 2px;
-  background: rgba(0,0,0,.55);
-}
-
-/* BACK */
-.visitekaartje__back{
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-
-  transform: rotateY(180deg);
-  padding: 1.25rem;
-  color: #fff;
-}
-
-.visitekaartje__header{
-  margin-bottom: .75rem;
-}
-
-.visitekaartje__name{
-  display: inline-block;
-  margin: 0 0 .35rem;
-  padding-bottom: .25rem;
-  border-bottom: 2px solid rgba(255,255,255,.6);
-  font-size: 1.15rem;
-}
-
-.visitekaartje__intro{
-  margin: 0;
-  color: var(--muted);
-  font-size: .95rem;
-}
-
-.visitekaartje__main{
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.visitekaartje__content{
-  flex: 1;
-  min-width: 0;
-}
-
-.visitekaartje__role{
-  margin: .5rem 0;
-  font-size: 1rem;
-}
-
-.visitekaartje__list{
-  margin: 0 0 1rem;
-  padding-left: 1.2rem;
-}
-
-.visitekaartje__list li{
-  color: var(--muted);
-}
-
-.visitekaartje__media{
-  margin: 0;
-}
-
-.visitekaartje__img{
-  width: 110px;
-  height: 110px;
-  object-fit: cover;
-  display: block;
+  aspect-ratio: 4 / 3;
   border-radius: 10px;
-  border: 2px solid rgba(255,255,255,.35);
+  overflow: hidden;
+
+  background: rgba(0,0,0,.10);
+  border: 2px solid rgba(0,0,0,.22);
 }
 
-.visitekaartje__links{
-  display: flex;
-  gap: .5rem;
+.hero__img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 15%;
 }
 
-.visitekaartje__icon{
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-
-  text-decoration: none;
-  border-radius: 12px;
-
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.25);
-  color: #fff;
-  font-size: .95rem;
+.hero__name{
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: .01em;
 }
 
-.visitekaartje__icon:hover{
-  background: rgba(255,255,255,.18);
-}
-
-.visitekaartje__back-close{
-  margin: .75rem 0 0;
-}
-
-.visitekaartje__close{
+.hero__badge{
+  margin: 10px 0 0;
   display: inline-block;
-  padding: .45rem .8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.35);
-  background: rgba(255,255,255,.12);
+  padding: 8px 12px;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.55);
+  border-radius: 8px;
+
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+/* ===== CONTENT ===== */
+.content{
+  padding: 8px 22px 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.item{
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255,255,255,.20);
+}
+
+/* ✅ knop/summary duidelijk */
+.item__btn{
   cursor: pointer;
-  color: #fff;
-  font-size: .9rem;
+  list-style: none;
+  padding: 14px 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255,255,255,.55);
+  border-bottom: 1px solid rgba(0,0,0,.10);
 }
 
-/* ✅ container queries (schaalt op basis van containerbreedte) */
-@container (max-width: 320px){
-  .visitekaartje__card{ height: 300px; }
-  .visitekaartje__front-name{ font-size: 1.9em; }
-  .visitekaartje__img{ width: 130px; height: 130px; }
+.item__btn::-webkit-details-marker{ display: none; }
+
+.item__btn::after{
+  content: "▾";
+  margin-left: auto;
+  opacity: .75;
 }
 
-@container (max-width: 700px){
-  .visitekaartje__back{ padding: 1.5em; }
-  .visitekaartje__name{ font-size: 1.25em; }
+.item[open] .item__btn::after{ content: "▴"; }
+
+.item__btn:hover{
+  background: rgba(255,255,255,.72);
+}
+
+.item__title{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+/* panel */
+.item__panel{
+  padding: 14px;
+  background: rgba(255,255,255,.40);
+}
+
+.item__text{
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* tags */
+.tags{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag{
+  background: rgba(255,255,255,.65);
+  border: 1px solid var(--stroke);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 800;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* footer */
+.footer{
+  padding: 0 22px 22px;
+}
+
+.buttons{
+  display: grid;
+  gap: 10px;
+}
+
+.buttons__btn{
+  text-decoration: none;
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 900;
+  color: var(--ink);
+  background: rgba(255,255,255,.60);
+  border: 1px solid var(--stroke);
+}
+
+.buttons__btn:hover{
+  background: rgba(255,255,255,.75);
+}
+
+/* ===== CONTAINER QUERY ===== */
+@container page (min-width: 520px){
+  .page{ width: 520px; }
+  .hero__name{ font-size: 40px; }
+  .hero__media{ max-width: 420px; }
+
+  .buttons{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
