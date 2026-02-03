@@ -2,17 +2,47 @@
 
 <article class="visitekaartje">
 
-      <header>
-        <h1>{{ person.name }}</h1>
-        <p>Ik kijk er naar uit om mijn kennis te verbreden
-        <br></p>
-      </header>
+  <section class="visitekaartje__card">
 
-      <main class="main">
-        <img src="/Jasin 1.jpg" alt="" width="800" height="800" class="visitekaartje-img">
-        <p>FDND student</p>
+    <header class="visitekaartje__header">
+      <h1 class="visitekaartje__name">{{ person.name }}</h1>
+      <p class="visitekaartje__intro">
+        Ik kijk ernaar uit om mijn kennis te verbreden.
+      </p>
+    </header>
 
-      </main>
+    <main class="visitekaartje__main">
 
-  </article>
+      <section class="visitekaartje__content">
+        <h2 class="visitekaartje__role">Student FDND</h2>
+
+        <ul class="visitekaartje__list">
+          <li>Front-end development</li>
+          <li>Leeftijd</li>
+          <li>Hobby’s</li>
+        </ul>
+
+        <nav class="visitekaartje__links">
+          <a class="visitekaartje__icon" href="#"></a>
+          <a class="visitekaartje__icon" href=""></a>
+          <a class="visitekaartje__icon" href="mailto:voorbeeld@mail.com">✉</a>
+        </nav>
+      </section>
+
+      <figure class="visitekaartje__media">
+        <img
+          class="visitekaartje__img"
+          src="/Squad1J-Jasin-2.jpg"
+          alt="{{ person.name }}"
+          width="320"
+          height="320"
+        >
+      </figure>
+
+    </main>
+
+  </section>
+
+</article>
+
 {% render 'partials/foot.liquid' %}
