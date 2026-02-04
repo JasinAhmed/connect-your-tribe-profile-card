@@ -13,7 +13,7 @@
 
   <main class="content">
 
-    <details class="item" open>
+    <details class="item" name="about" open>
       <summary class="item__btn">
         <h2 class="item__title">Wie ben ik</h2>
       </summary>
@@ -24,7 +24,7 @@
       </section>
     </details>
 
-    <details class="item">
+    <details class="item" name="about">
       <summary class="item__btn">
         <h2 class="item__title">Hobby’s</h2>
       </summary>
@@ -37,7 +37,7 @@
       </section>
     </details>
 
-    <details class="item">
+    <details class="item" name="about">
       <summary class="item__btn">
         <h2 class="item__title">Skills</h2>
       </summary>
@@ -52,21 +52,15 @@
 
   </main>
 
-<nav class="buttons">
+  <nav class="buttons buttons--socials">
+    <a class="social" href="https://github.com/{{ person.github_handle }}" target="_blank" rel="noopener">
+      <img src="Github svg.svg" alt="GitHub">
+    </a>
 
-  <!-- GitHub via handle -->
-<nav class="buttons buttons--socials">
-  <a class="social" href="https://github.com/{{ person.github_handle }}" target="_blank" rel="noopener">
-    <img src="Github svg.svg" alt="GitHub">
-  </a>
-
-  <a class="social" href="{{ person.custom.linkedin }}" target="_blank" rel="noopener">
-    <img src="Linkedin.png" alt="LinkedIn">
-  </a>
-</nav>
-
-
-
+    <a class="social" href="{{ person.custom.linkedin }}" target="_blank" rel="noopener">
+      <img src="Linkedin.png" alt="LinkedIn">
+    </a>
+  </nav>
 
   <footer class="footer"></footer>
 
