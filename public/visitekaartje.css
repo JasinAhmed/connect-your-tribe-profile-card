@@ -17,29 +17,28 @@ html, body{
 
 body{
   margin: 0;
+  min-height: 100vh;
+
   display: grid;
-  place-items: center;
-  padding: 12px;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  place-items: start center; 
 
-  /* Achtergrondfoto + overlay */
-  background-image:
-    linear-gradient(rgba(0,0,0,.60), rgba(0,0,0,.60)),
+  padding: 20px;
+  font-family: system-ui, sans-serif;
+
+  background:
+    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
     url("achtergrond.jpg");
-
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-
-  overflow-x: hidden;
 }
-
 
 /* PAGE */
 
-
 .page{
-  width: min(420px, 92vw);
+  width: 100%;
+  max-width: 420px;        
+  overflow: auto;
+
   background: var(--paper);
   color: var(--ink);
   border-radius: 14px;
@@ -48,8 +47,12 @@ body{
 
   container-type: inline-size;
   container-name: page;
-}
 
+  
+  @container page (min-width: 520px){
+    width: 520px;
+  }
+}
 
 /* HERO */
 
@@ -100,18 +103,36 @@ body{
 }
 
 
-/* CONTENT */
+.page{
+  @container page (min-width: 520px){
+    .hero__name{
+      font-size: 40px;
+    }
 
+    .hero__media{
+      max-width: 420px;
+    }
+  }
+}
+
+/* CONTENT */
 
 .content{
   padding: 8px 22px 18px;
   display: grid;
   gap: 14px;
+
+
+  justify-items: center;
 }
 
 /* Accordion item */
 
 .item{
+  width: 100%;
+  max-width: 360px;  
+  margin: 0 auto;
+
   border: 1px solid rgba(0,0,0,.12);
   border-radius: 14px;
   overflow: hidden;
@@ -126,7 +147,6 @@ body{
   padding: 14px;
 
   display: flex;
-  justify-content: center;
   align-items: center;
 
   background: rgba(255,255,255,.65);
@@ -151,6 +171,8 @@ body{
   margin: 0;
   font-size: 16px;
   font-weight: 900;
+  width: 100%;
+  text-align: center; 
 }
 
 /* panel */
@@ -168,9 +190,7 @@ body{
   font-size: 14px;
 }
 
-
 /* TAGS */
-
 
 .tags{
   list-style: none;
@@ -193,53 +213,43 @@ body{
   white-space: nowrap;
 }
 
-
-/* FOOTER BUTTONS */
-
+/* SOCIALS */
 
 .footer{
-  padding: 0 22px 22px;
+  padding: 0;
 }
 
 .buttons{
-  display: grid;
-  gap: 10px;
+  padding: 0 22px 22px;
 }
 
-.buttons__btn{
-  text-decoration: none;
-  text-align: center;
-  padding: 12px;
-  border-radius: 12px;
-  font-weight: 900;
-  color: var(--ink);
+.buttons--socials{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.social{
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+
   background: rgba(255,255,255,.70);
   border: 1px solid var(--stroke);
+  text-decoration: none;
+
+  transition: transform .15s ease;
 }
 
-.buttons__btn:hover{
+.social:hover{
   background: rgba(255,255,255,.85);
+  transform: translateY(-2px);
 }
 
-
-/* CONTAINER QUERY */
-
-@container page (min-width: 520px){
-
-  .page{
-    width: 520px;
-  }
-
-  .hero__name{
-    font-size: 40px;
-  }
-
-  .hero__media{
-    max-width: 420px;
-  }
-
-  .buttons{
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
+.social img{
+  width: 24px;
+  height: 24px;
+  display: block;
 }

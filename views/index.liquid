@@ -52,10 +52,21 @@
 
   </main>
 
-  <nav class="buttons">
-    <a class="buttons__btn" href="https://github.com/{{ person.github_handle }}" target="_blank" rel="noopener">GitHub</a>
-    <a class="buttons__btn" href="{{ person.website }}" target="_blank" rel="noopener">Website</a>
-  </nav>
+<nav class="buttons">
+
+  <!-- GitHub via handle -->
+<nav class="buttons buttons--socials">
+  <a class="social" href="https://github.com/{{ person.github_handle }}" target="_blank" rel="noopener">
+    <img src="Github svg.svg" alt="GitHub">
+  </a>
+
+  <a class="social" href="{{ person.custom.linkedin }}" target="_blank" rel="noopener">
+    <img src="Linkedin.png" alt="LinkedIn">
+  </a>
+</nav>
+
+
+
 
   <footer class="footer"></footer>
 
