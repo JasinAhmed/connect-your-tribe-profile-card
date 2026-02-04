@@ -3,45 +3,56 @@
   --muted: rgba(17,17,17,.72);
   --stroke: rgba(17,17,17,.18);
 
-  --paper: rgba(215,215,215,.92); /* kaart iets transparant -> mooier met foto */
+  --paper: rgba(215,215,215,.94);
   --shadow: 0 24px 70px rgba(0,0,0,.55);
 }
 
-*{ box-sizing: border-box; }
+*{
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100%;
+}
 
 body{
   margin: 0;
-  min-height: 100vh;
   display: grid;
   place-items: center;
-  padding: 16px 12px;
+  padding: 12px;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 
-  /* ✅ achtergrondfoto + overlay */
+  /* Achtergrondfoto + overlay */
   background-image:
     linear-gradient(rgba(0,0,0,.60), rgba(0,0,0,.60)),
-    url("/achtergrond.jpg");
+    url("achtergrond.jpg");
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  overflow-x: hidden;
 }
 
-/* ✅ container queries */
+
+/* PAGE */
+
+
 .page{
   width: min(420px, 92vw);
   background: var(--paper);
   color: var(--ink);
   border-radius: 14px;
   box-shadow: var(--shadow);
-  overflow: hidden;
   border: 1px solid rgba(255,255,255,.10);
 
   container-type: inline-size;
   container-name: page;
 }
 
-/* ===== HERO ===== */
+
+/* HERO */
+
 .hero{
   padding: 22px 22px 10px;
   text-align: center;
@@ -50,14 +61,14 @@ body{
 .hero__media{
   margin: 0 auto 16px;
   width: 100%;
-  max-width: 330px;
+  max-width: 340px;
 
   aspect-ratio: 4 / 3;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
 
   background: rgba(0,0,0,.10);
-  border: 2px solid rgba(0,0,0,.22);
+  border: 2px solid rgba(0,0,0,.25);
 }
 
 .hero__img{
@@ -77,10 +88,10 @@ body{
 .hero__badge{
   margin: 10px 0 0;
   display: inline-block;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border: 1px solid var(--stroke);
-  background: rgba(255,255,255,.55);
-  border-radius: 8px;
+  background: rgba(255,255,255,.60);
+  border-radius: 10px;
 
   font-weight: 900;
   letter-spacing: .16em;
@@ -88,35 +99,39 @@ body{
   font-size: 12px;
 }
 
-/* ===== CONTENT ===== */
+
+/* CONTENT */
+
+
 .content{
   padding: 8px 22px 18px;
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
+
+/* Accordion item */
 
 .item{
   border: 1px solid rgba(0,0,0,.12);
   border-radius: 14px;
   overflow: hidden;
-  background: rgba(255,255,255,.20);
+  background: rgba(255,255,255,.25);
 }
 
-/* ✅ knop/summary duidelijk */
+/* summary knop */
+
 .item__btn{
   cursor: pointer;
   list-style: none;
-  padding: 14px 14px;
+  padding: 14px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background: rgba(255,255,255,.55);
+  background: rgba(255,255,255,.65);
   border-bottom: 1px solid rgba(0,0,0,.10);
 }
-
-.item__btn::-webkit-details-marker{ display: none; }
 
 .item__btn::after{
   content: "▾";
@@ -124,10 +139,12 @@ body{
   opacity: .75;
 }
 
-.item[open] .item__btn::after{ content: "▴"; }
+.item[open] .item__btn::after{
+  content: "▴";
+}
 
 .item__btn:hover{
-  background: rgba(255,255,255,.72);
+  background: rgba(255,255,255,.80);
 }
 
 .item__title{
@@ -137,9 +154,10 @@ body{
 }
 
 /* panel */
+
 .item__panel{
   padding: 14px;
-  background: rgba(255,255,255,.40);
+  background: rgba(255,255,255,.45);
 }
 
 .item__text{
@@ -150,7 +168,10 @@ body{
   font-size: 14px;
 }
 
-/* tags */
+
+/* TAGS */
+
+
 .tags{
   list-style: none;
   padding: 0;
@@ -163,7 +184,7 @@ body{
 }
 
 .tag{
-  background: rgba(255,255,255,.65);
+  background: rgba(255,255,255,.75);
   border: 1px solid var(--stroke);
   border-radius: 999px;
   padding: 8px 14px;
@@ -172,7 +193,10 @@ body{
   white-space: nowrap;
 }
 
-/* footer */
+
+/* FOOTER BUTTONS */
+
+
 .footer{
   padding: 0 22px 22px;
 }
@@ -189,21 +213,33 @@ body{
   border-radius: 12px;
   font-weight: 900;
   color: var(--ink);
-  background: rgba(255,255,255,.60);
+  background: rgba(255,255,255,.70);
   border: 1px solid var(--stroke);
 }
 
 .buttons__btn:hover{
-  background: rgba(255,255,255,.75);
+  background: rgba(255,255,255,.85);
 }
 
-/* ===== CONTAINER QUERY ===== */
+
+/* CONTAINER QUERY */
+
 @container page (min-width: 520px){
-  .page{ width: 520px; }
-  .hero__name{ font-size: 40px; }
-  .hero__media{ max-width: 420px; }
+
+  .page{
+    width: 520px;
+  }
+
+  .hero__name{
+    font-size: 40px;
+  }
+
+  .hero__media{
+    max-width: 420px;
+  }
 
   .buttons{
     grid-template-columns: 1fr 1fr 1fr;
   }
+
 }
