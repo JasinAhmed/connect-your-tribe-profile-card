@@ -4,11 +4,11 @@
 
   <header class="hero">
     <figure class="hero__media">
-      <img class="hero__img" src="Squad1J-Jasin-2.jpg" alt="{{ person.name }}">
+      <img class="hero__img" src="{{ person.avatar }}" alt="{{ person.name }}">
     </figure>
 
     <h1 class="hero__name">{{ person.name }}</h1>
-    <p class="hero__badge">FDND STUDENT</p>
+    <p class="hero__badge">{{ person.custom.fdndstudent }}</p>
   </header>
 
   <main class="content">
@@ -19,8 +19,7 @@
       </summary>
       <section class="item__panel">
         <p class="item__text">
-          Ik ben een eerstejaars Front-end student. Ik wil beter worden door veel te oefenen met projecten
-          en duidelijke, rustige designs te maken.
+          {{ person.bio }}
         </p>
       </section>
     </details>
@@ -31,10 +30,9 @@
       </summary>
       <section class="item__panel">
         <ul class="tags">
-          <li class="tag">Geschiedenis</li>
-          <li class="tag">Boeken</li>
-          <li class="tag">Films</li>
-          <li class="tag">Series</li>
+          <li class="tag">{{ person.custom.hobby1 }}</li>
+          <li class="tag">{{ person.custom.hobby2 }}</li>
+          <li class="tag">{{ person.custom.hobby3 }}</li>
         </ul>
       </section>
     </details>
@@ -45,17 +43,21 @@
       </summary>
       <section class="item__panel">
         <ul class="tags">
-          <li class="tag">HTML</li>
-          <li class="tag">CSS</li>
-          <li class="tag">JavaScript</li>
+          <li class="tag">{{ person.custom.skill1 }}</li>
+          <li class="tag">{{ person.custom.skill2 }}</li>
+          <li class="tag">{{ person.custom.skill3 }}</li>
         </ul>
       </section>
     </details>
 
   </main>
 
-  <footer class="footer">
-  </footer>
+  <nav class="buttons">
+    <a class="buttons__btn" href="https://github.com/{{ person.github_handle }}" target="_blank" rel="noopener">GitHub</a>
+    <a class="buttons__btn" href="{{ person.website }}" target="_blank" rel="noopener">Website</a>
+  </nav>
+
+  <footer class="footer"></footer>
 
 </article>
 
