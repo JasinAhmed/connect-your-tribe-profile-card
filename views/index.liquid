@@ -5,30 +5,43 @@
 
     <header class="hero">
       <figure class="hero__media">
-        <img class="hero__img" src="{{ person.avatar }}" alt="{{ person.name }}">
+        <img 
+          class="hero__img" 
+          src="{{ person.avatar }}" 
+          alt="{{ person.name }}">
       </figure>
 
-      <h1 class="hero__name">{{ person.name }}</h1>
-      <p class="hero__badge">{{ person.custom.fdndstudent }}</p>
+      <h1 class="hero__name">
+        {{ person.name }}
+      </h1>
+
+      <p class="hero__badge">
+        {{ person.custom.fdndstudent }}
+      </p>
     </header>
 
     <section class="content__inner">
-      <h2 class="visually-hidden">Informatie</h2>
 
-      <details class="item" open>
+      <!-- Wie ben ik -->
+      <details class="item" name="accordion" open>
         <summary class="item__btn">
           <h2 class="item__title">Wie ben ik</h2>
         </summary>
+
         <section class="item__panel">
           <h3 class="visually-hidden">Wie ben ik</h3>
-          <p class="item__text">{{ person.bio }}</p>
+          <p class="item__text">
+            {{ person.bio }}
+          </p>
         </section>
       </details>
 
-      <details class="item">
+      <!-- Hobby’s -->
+      <details class="item" name="accordion">
         <summary class="item__btn">
           <h2 class="item__title">Hobby’s</h2>
         </summary>
+
         <section class="item__panel">
           <h3 class="visually-hidden">Hobby’s</h3>
           <ul class="tags">
@@ -39,10 +52,12 @@
         </section>
       </details>
 
-      <details class="item">
+      <!-- Skills -->
+      <details class="item" name="accordion">
         <summary class="item__btn">
           <h2 class="item__title">Skills</h2>
         </summary>
+
         <section class="item__panel">
           <h3 class="visually-hidden">Skills</h3>
           <ul class="tags">
@@ -56,12 +71,22 @@
     </section>
 
     <nav class="buttons buttons--socials">
-      <a class="social" href="https://github.com/{{ person.github_handle }}" target="_blank" rel="noopener noreferrer">
-        <img src="github.svg" alt="GitHub">
+      <a 
+        class="social" 
+        href="https://github.com/{{ person.github_handle }}" 
+        target="_blank" 
+        rel="noopener noreferrer">
+
+        <img src="/github.svg" alt="GitHub">
       </a>
 
-      <a class="social" href="{{ person.custom.linkedin }}" target="_blank" rel="noopener noreferrer">
-        <img src="Linkedin.png" alt="LinkedIn">
+      <a 
+        class="social" 
+        href="{{ person.custom.linkedin }}" 
+        target="_blank" 
+        rel="noopener noreferrer">
+
+        <img src="/Linkedin.png" alt="LinkedIn">
       </a>
     </nav>
 
