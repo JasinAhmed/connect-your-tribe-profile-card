@@ -1,69 +1,71 @@
 {% render 'partials/head.liquid' %}
 
-<article class="page">
+<main class="content">
+  <article class="page">
 
-  <header class="hero">
-    <figure class="hero__media">
-      <img class="hero__img" src="{{ person.avatar }}" alt="{{ person.name }}">
-    </figure>
+    <header class="hero">
+      <figure class="hero__media">
+        <img class="hero__img" src="{{ person.avatar }}" alt="{{ person.name }}">
+      </figure>
 
-    <h1 class="hero__name">{{ person.name }}</h1>
-    <p class="hero__badge">{{ person.custom.fdndstudent }}</p>
-  </header>
+      <h1 class="hero__name">{{ person.name }}</h1>
+      <p class="hero__badge">{{ person.custom.fdndstudent }}</p>
+    </header>
 
-  <main class="content">
+    <section class="content__inner">
+      <h2 class="visually-hidden">Informatie</h2>
 
-    <details class="item" name="about" open>
-      <summary class="item__btn">
-        <h2 class="item__title">Wie ben ik</h2>
-      </summary>
-      <section class="item__panel">
-        <p class="item__text">
-          {{ person.bio }}
-        </p>
-      </section>
-    </details>
+      <details class="item" open>
+        <summary class="item__btn">
+          <h2 class="item__title">Wie ben ik</h2>
+        </summary>
+        <section class="item__panel">
+          <h3 class="visually-hidden">Wie ben ik</h3>
+          <p class="item__text">{{ person.bio }}</p>
+        </section>
+      </details>
 
-    <details class="item" name="about">
-      <summary class="item__btn">
-        <h2 class="item__title">Hobby’s</h2>
-      </summary>
-      <section class="item__panel">
-        <ul class="tags">
-          <li class="tag">{{ person.custom.hobby1 }}</li>
-          <li class="tag">{{ person.custom.hobby2 }}</li>
-          <li class="tag">{{ person.custom.hobby3 }}</li>
-        </ul>
-      </section>
-    </details>
+      <details class="item">
+        <summary class="item__btn">
+          <h2 class="item__title">Hobby’s</h2>
+        </summary>
+        <section class="item__panel">
+          <h3 class="visually-hidden">Hobby’s</h3>
+          <ul class="tags">
+            <li class="tag">{{ person.custom.hobby1 }}</li>
+            <li class="tag">{{ person.custom.hobby2 }}</li>
+            <li class="tag">{{ person.custom.hobby3 }}</li>
+          </ul>
+        </section>
+      </details>
 
-    <details class="item" name="about">
-      <summary class="item__btn">
-        <h2 class="item__title">Skills</h2>
-      </summary>
-      <section class="item__panel">
-        <ul class="tags">
-          <li class="tag">{{ person.custom.skill1 }}</li>
-          <li class="tag">{{ person.custom.skill2 }}</li>
-          <li class="tag">{{ person.custom.skill3 }}</li>
-        </ul>
-      </section>
-    </details>
+      <details class="item">
+        <summary class="item__btn">
+          <h2 class="item__title">Skills</h2>
+        </summary>
+        <section class="item__panel">
+          <h3 class="visually-hidden">Skills</h3>
+          <ul class="tags">
+            <li class="tag">{{ person.custom.skill1 }}</li>
+            <li class="tag">{{ person.custom.skill2 }}</li>
+            <li class="tag">{{ person.custom.skill3 }}</li>
+          </ul>
+        </section>
+      </details>
 
-  </main>
+    </section>
 
-  <nav class="buttons buttons--socials">
-    <a class="social" href="https://github.com/{{ person.github_handle }}" target="_blank" rel="noopener">
-      <img src="Github svg.svg" alt="GitHub">
-    </a>
+    <nav class="buttons buttons--socials">
+      <a class="social" href="https://github.com/{{ person.github_handle }}" target="_blank" rel="noopener noreferrer">
+        <img src="github.svg" alt="GitHub">
+      </a>
 
-    <a class="social" href="{{ person.custom.linkedin }}" target="_blank" rel="noopener">
-      <img src="Linkedin.png" alt="LinkedIn">
-    </a>
-  </nav>
+      <a class="social" href="{{ person.custom.linkedin }}" target="_blank" rel="noopener noreferrer">
+        <img src="Linkedin.png" alt="LinkedIn">
+      </a>
+    </nav>
 
-  <footer class="footer"></footer>
-
-</article>
+  </article>
+</main>
 
 {% render 'partials/foot.liquid' %}
