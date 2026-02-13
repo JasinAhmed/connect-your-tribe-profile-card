@@ -5,6 +5,8 @@
   --paper: rgba(225,225,225,.92);
   --stroke: rgba(255,255,255,.18);
   --shadow: 0 24px 70px rgba(0,0,0,.55);
+
+  --focus: #2563eb; /* duidelijke focus kleur */
 }
 
 *{ box-sizing: border-box; }
@@ -14,8 +16,6 @@ html, body{ height: 100%; }
 body{
   margin: 0;
   min-height: 100vh;
-
-
   padding: 12px;
 
   display: grid;
@@ -30,18 +30,27 @@ body{
   background-position: center;
 }
 
-/* WRAPPER */
+/*FOCUS STYLING*/
+
+a:focus-visible,
+summary:focus-visible{
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+/*WRAPPER*/
+
 .content{
   width: 100%;
   display: grid;
   place-items: center;
 }
 
-/* CARD container voor container queries */
+/*CARD*/
+
 .page{
-
   width: min(420px, 100%);
-
   background: var(--paper);
   color: var(--ink);
 
@@ -49,7 +58,6 @@ body{
   border: 1px solid rgba(255,255,255,.18);
   box-shadow: var(--shadow);
 
-  /* container queries aan */
   container-type: inline-size;
   container-name: card;
 
@@ -61,7 +69,8 @@ body{
   box-shadow: 0 30px 90px rgba(0,0,0,.58);
 }
 
-/* HERO */
+/*HERO*/
+
 .hero{
   padding: 18px 18px 10px;
   text-align: center;
@@ -70,8 +79,6 @@ body{
 .hero__media{
   margin: 0 auto 14px;
   width: 100%;
-
- 
   max-width: 360px;
 
   aspect-ratio: 4 / 3;
@@ -121,10 +128,12 @@ body{
   font-weight: 900;
   letter-spacing: .16em;
   text-transform: uppercase;
-  font-size: 12px;
+
+  font-size: 14px; /* was 12px */
 }
 
-/* CONTENT */
+/*CONTENT */
+
 .content__inner{
   padding: 10px 18px;
   display: grid;
@@ -132,7 +141,8 @@ body{
   justify-items: center;
 }
 
-/* ACCORDION */
+/*ACCORDION*/
+
 .item{
   width: 100%;
   max-width: 380px;
@@ -152,11 +162,20 @@ body{
   border-color: rgba(0,0,0,.18);
 }
 
-/* SUMMARY knop */
+
+.item:focus-within{
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: 14px;
+}
+
+
+.item:focus-within{
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, .18);
+}
+
 .item__btn{
   cursor: pointer;
-
-
   list-style: none;
 
   position: relative;
@@ -172,7 +191,6 @@ body{
   transition: background .18s ease, transform .12s ease;
 }
 
-
 .item__btn::marker{ content: ""; }
 
 .item__btn:hover{
@@ -183,13 +201,11 @@ body{
   transform: translateY(1px);
 }
 
+
 .item__btn:focus-visible{
   outline: none;
-  box-shadow: 0 0 0 4px rgba(0,0,0,.12);
-  border-radius: 12px;
 }
 
-/* pijltje rechts */
 .item__btn::after{
   content: "▾";
   position: absolute;
@@ -209,7 +225,6 @@ body{
   text-align: center;
 }
 
-/* PANEL animatie */
 .item__panel{
   background: rgba(255,255,255,.45);
   overflow: hidden;
@@ -235,11 +250,12 @@ body{
 .item__text{
   text-align: center;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px; /* was 14px */
   line-height: 1.6;
 }
 
 /* TAGS */
+
 .tags{
   list-style: none;
   padding: 0;
@@ -258,7 +274,8 @@ body{
   padding: 6px 12px;
 
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px; /* was 13px */
+
   white-space: nowrap;
 
   transition: transform .12s ease, background .18s ease;
@@ -269,7 +286,8 @@ body{
   transform: translateY(-1px);
 }
 
-/* SOCIALS */
+/*SOCIALS */
+
 .buttons{
   padding: 10px 18px 18px;
 }
@@ -307,7 +325,14 @@ body{
   display: block;
 }
 
-/* A11y Test */
+.social:focus-visible{
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: 14px;
+}
+
+/* A11Y*/
+
 .visually-hidden{
   position: absolute !important;
   width: 1px; height: 1px;
@@ -318,10 +343,8 @@ body{
   border: 0;
 }
 
+/*CONTAINER QUERIES */
 
-   /* CONTAINER QUERIES */
-
-/* Vanaf iets bredere kaart: iets grotere typografie en spacing */
 @container card (min-width: 460px){
   .hero{ padding: 20px 22px 10px; }
   .content__inner{ padding: 12px 22px; }
@@ -331,7 +354,6 @@ body{
   .hero__media{ max-width: 420px; }
 }
 
-/* Nog breder */
 @container card (min-width: 520px){
   .page{ width: 520px; }
 
@@ -350,7 +372,8 @@ body{
   .item{ max-width: 420px; }
 }
 
-/* Reduced motion */
+/*REDUCED MOTION */
+
 @media (prefers-reduced-motion: reduce){
   .page, .page *{ transition: none !important; }
 }
